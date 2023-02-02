@@ -1,4 +1,6 @@
 //This code returns the largest substring which is a palindrome inside of a given string.
+//It takes roughly 2800ms on my computer to execute this string "zudfweormatjycujjirzjpyrmaxurectxrtqedmmgergwdvjmjtstdhcihacqnothgttgqfywcpgnuvwglvfiuxteopoyizgehkwuvvkqxbnufkcbodlhdmbqyghkojrgokpwdhtdrwmvdegwycecrgjvuexlguayzcammupgeskrvpthrmwqaqsdcgycdupykppiyhwzwcplivjnnvwhqkkxildtyjltklcokcrgqnnwzzeuqioyahqpuskkpbxhvzvqyhlegmoviogzwuiqahiouhnecjwysmtarjjdjqdrkljawzasriouuiqkcwwqsxifbndjmyprdozhwaoibpqrthpcjphgsfbeqrqqoqiqqdicvybzxhklehzzapbvcyleljawowluqgxxwlrymzojshlwkmzwpixgfjljkmwdtjeabgyrpbqyyykmoaqdambpkyyvukalbrzoyoufjqeftniddsfqnilxlplselqatdgjziphvrbokofvuerpsvqmzakbyzxtxvyanvjpfyvyiivqusfrsufjanmfibgrkwtiuoykiavpbqeyfsuteuxxjiyxvlvgmehycdvxdorpepmsinvmyzeqeiikajopqedyopirmhymozernxzaueljjrhcsofwyddkpnvcvzixdjknikyhzmstvbducjcoyoeoaqruuewclzqqqxzpgykrkygxnmlsrjudoaejxkipkgmcoqtxhelvsizgdwdyjwuumazxfstoaxeqqxoqezakdqjwpkrbldpcbbxexquqrznavcrprnydufsidakvrpuzgfisdxreldbqfizngtrilnbqboxwmwienlkmmiuifrvytukcqcpeqdwwucymgvyrektsnfijdcdoawbcwkkjkqwzffnuqituihjaklvthulmcjrhqcyzvekzqlxgddjoir"
+//both take almost the same time.
 
 var longestPalindrome = function(s) {
     const time = Date.now();
@@ -13,4 +15,25 @@ var longestPalindrome = function(s) {
     }
     }
     
+};
+
+//code 2
+var longestPalindrome = function(s) {
+    let arr = [];
+    let time = Date.now();
+    // let count = 1;
+    for(let count = 1; count <= s.length; count++){
+    // while(count <= s.length){
+
+        for(let i = 0; i <= s.length - count; i++){
+            let temp = (s.substring(i, i+count));
+            if(temp == (temp.split('')).reverse().join('')){
+                arr.push(temp);
+            }
+        }
+        // count++;
+    }
+    // }
+
+    return arr[arr.length - 1], (Date.now() - time);
 };
