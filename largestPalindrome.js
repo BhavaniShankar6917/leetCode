@@ -38,3 +38,21 @@ var longestPalindrome = function(s) {
 
     return arr[arr.length - 1], (Date.now() - time);
 };
+
+//////Code 3!!!!!!!!
+var longestPalindrome = function(s) {
+    const time = Date.now();
+    for(let count = s.length; count >= 1; count--){
+        for(let i = 0; i + count <= s.length; i++){
+            let temp = (s.substring(i, i + count));
+                let reverse = '';                                       //!!!!!!!!!!!!!!!!CHANGE!!!!!!!!!!!!!!!!!!!
+                                                                  //got rid of js methods to reverse the string and used for loop 1000ms saved!!!!!!!
+                for(let j = temp.length -1; j >= 0; j--)    
+                    reverse += temp[j];
+                if(temp == reverse){
+                    return temp;
+            }
+    }
+    }
+    
+};
