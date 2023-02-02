@@ -8,7 +8,8 @@ var longestPalindrome = function(s) {
         for(let i = 0; i + count <= s.length; i++){
             let temp = (s.substring(i, i + count));
                 // console.log(temp);
-                if(temp == (temp.split('')).reverse().join('')){
+                if(temp == (temp.split('')).reverse().join('')){   //////!!!!!!!!!!!!Just using Spread Operator instead of split here caused a performance difference
+                                                                   //////////////////of over 5000ms.
                     console.log((Date.now() - time));
                     return temp;
             }
